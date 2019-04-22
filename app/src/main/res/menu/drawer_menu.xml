@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    /* Displaying navigation bar (menu) icons */
+
+    <item android:title="Contacto">
+        <menu android:checkableBehavior="single">
+            <item
+                android:id="@+id/menu_mail"
+                android:icon="@drawable/ic_message"
+                android:title="Enviar correo" />
+        </menu>
+    </item>
+
+    <item android:title="Interno">
+        <menu android:checkableBehavior="single">
+            <item
+                android:id="@+id/menu_poll"
+                android:icon="@drawable/ic_poll"
+                android:title="Realizar encuesta" />
+        </menu>
+    </item>
+
+    <item android:title="Fiestas">
+        <menu android:checkableBehavior="single">
+            <item
+                android:id="@+id/menu_bar"
+                android:icon="@drawable/ic_bar"
+                android:title="Ver barras" />
+            <item
+                android:id="@+id/menu_list"
+                android:icon="@drawable/ic_list"
+                android:title="Ver actos" />
+            <item
+                android:id="@+id/menu_internal_schedule"
+                android:icon="@drawable/ic_list"
+                android:title="Ver programa Alaiak" />
+        </menu>
+    </item>
+
+</menu>

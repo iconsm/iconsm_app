@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        name = (EditText)findViewById(R.id.etName);
-        password = (EditText)findViewById(R.id.etPassword);
+        name = (EditText) findViewById(R.id.etName);
+        password = (EditText) findViewById(R.id.etPassword);
         button = (Button) findViewById(R.id.btnSartu);
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -44,23 +44,23 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validate(name.getText().toString(),password.getText().toString());
+                validate(name.getText().toString(), password.getText().toString());
             }
         });
     }
 
-    private void validate (String userName, String userPassword){
+    private void validate(String userName, String userPassword) {
 
-        firebaseAuth.signInWithEmailAndPassword(userName,userPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        firebaseAuth.signInWithEmailAndPassword(userName, userPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    Toast.makeText(MainActivity.this,"Login arrakastatsua!",Toast.LENGTH_SHORT).show();
+                if (task.isSuccessful()) {
+                    Toast.makeText(MainActivity.this, "Login arrakastatsua!", Toast.LENGTH_SHORT).show();
                     //finish();
-                    //startActivity(new Intent(MainActivity.this,MenuActivity.class));
+                    startActivity(new Intent(MainActivity.this,MenuActivity.class));
 
-                }else{
-                    Toast.makeText(MainActivity.this,"Loginak huts egin du!",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "Loginak huts egin du!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
