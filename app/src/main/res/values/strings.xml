@@ -4,4 +4,8 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="main_activity_user">Usuario</string>
+    <string name="main_activity_password">Contraseña</string>
+    <string name="main_activity_sign_in">Entrar</string>
+    <string name="main_activity_remember_password">Recordar contraseñar</string>
 </resources>

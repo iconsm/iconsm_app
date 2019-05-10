@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         name = (EditText)findViewById(R.id.etName);
         password = (EditText)findViewById(R.id.etPassword);
-        button = (Button) findViewById(R.id.btnSartu);
+        button = (Button) findViewById(R.id.btnSignIn);
 
         firebaseAuth = FirebaseAuth.getInstance();
        /* FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -55,12 +55,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(MainActivity.this,"Login arrakastatsua!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,"Login exitoso!",Toast.LENGTH_SHORT).show();
                     //finish();
                     //startActivity(new Intent(MainActivity.this,MenuActivity.class));
 
                 }else{
-                    Toast.makeText(MainActivity.this,"Loginak huts egin du!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,"Login fallido!",Toast.LENGTH_SHORT).show();
                 }
             }
         });
