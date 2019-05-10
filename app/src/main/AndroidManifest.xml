@@ -9,6 +9,30 @@
         android:roundIcon="@mipmap/ic_alaiak_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".Internal_schedule"
+            android:label="@string/title_activity_internal_schedule"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".List"
+            android:label="@string/title_activity_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Bar"
+            android:label="@string/title_activity_bar"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Poll"
+            android:label="@string/title_activity_poll"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Send_email"
+            android:label="@string/title_activity_send_email"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Home"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
