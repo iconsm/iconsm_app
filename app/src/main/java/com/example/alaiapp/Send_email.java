@@ -13,9 +13,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class Send_email extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    //private EditText mEditTextTo;
+    private EditText mEditTextSubject;
+    private EditText mEditTextMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +47,36 @@ public class Send_email extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        /* Function code starts here */
+        //mEditTextTo = findViewById(R.id.edit_text_to);
+        mEditTextSubject = findViewById(R.id.edit_text_subject);
+        mEditTextMessage = findViewById(R.id.edit_text_message);
+
+        Button buttonSend = findViewById(R.id.button_send);
+        buttonSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendMail();
+            }
+        });
+    }
+
+    private void sendMail(){
+        String receiverList = "alaiaktaldeaapp@gmail.com";
+        String[] receiver = {receiverList};
+        String subject = mEditTextSubject.getText().toString();
+        String message = mEditTextMessage.getText().toString();
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_EMAIL,receiver);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+
+        /* This will take care of only opening email clients (Gmail, Hotmail...) */
+        intent.setType("message/rfc822");
+
+        startActivity(Intent.createChooser(intent, "Elige cómo mandar el correo"));
     }
 
     @Override

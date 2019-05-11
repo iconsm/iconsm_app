@@ -12,7 +12,7 @@
         <activity
             android:name=".Internal_schedule"
             android:label="@string/title_activity_internal_schedule"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".List"
             android:label="@string/title_activity_list"
