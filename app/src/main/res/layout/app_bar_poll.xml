@@ -73,8 +73,9 @@
         android:id="@+id/button_send_poll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="90dp"
-        android:layout_marginTop="550dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
         android:text="Enviar encuesta por correo" />
 
 
