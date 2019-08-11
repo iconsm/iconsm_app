@@ -11,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.alaiapp.Global_Variables.GlobalClass;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -52,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
         }else{
             Toast.makeText(this,"Erabiltzaile edo pasahitz okerra!",Toast.LENGTH_SHORT).show();
         }*/
+        GlobalClass globalClass = (GlobalClass) getApplicationContext();
+        globalClass.setGlobal_user(name.getText().toString());
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

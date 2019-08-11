@@ -13,25 +13,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.Toast;
 
-import com.example.alaiapp.Global_Variables.GlobalClass;
-
-public class Bar extends AppCompatActivity
+public class Add_Bar extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-    private EditText password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bar);
+        setContentView(R.layout.activity_add__bar);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -41,27 +32,6 @@ public class Bar extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        //START FROM HERE
-
-        ImageButton buttonAddBar = (ImageButton) findViewById(R.id.imageButton);
-        buttonAddBar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    gotoactivity();
-                }
-            });
-    }
-
-    private void gotoactivity(){
-        GlobalClass globalClass = (GlobalClass) getApplicationContext();
-        if (globalClass.getGlobal_user().equals("ikercondeperez@gmail.com")) {
-            Intent add_bar = new Intent(Bar.this, Add_Bar.class);
-            startActivity(add_bar);
-        }
-        else {
-            Toast.makeText(this, "No tienes permiso para agregar barras", Toast.LENGTH_SHORT).show();
-        }
     }
 
     @Override
@@ -104,23 +74,23 @@ public class Bar extends AppCompatActivity
         switch (id) {
 
             case R.id.nav_mail:
-                Intent mail = new Intent(Bar.this, Send_email.class);
+                Intent mail = new Intent(Add_Bar.this, Send_email.class);
                 startActivity(mail);
                 break;
             case R.id.nav_poll:
-                Intent poll = new Intent(Bar.this, Poll.class);
+                Intent poll = new Intent(Add_Bar.this, Poll.class);
                 startActivity(poll);
                 break;
             case R.id.nav_bar:
-                Intent bar = new Intent(Bar.this, Bar.class);
+                Intent bar = new Intent(Add_Bar.this, Bar.class);
                 startActivity(bar);
                 break;
             case R.id.nav_list:
-                Intent list = new Intent(Bar.this, List.class);
+                Intent list = new Intent(Add_Bar.this, List.class);
                 startActivity(list);
                 break;
             case R.id.nav_internal_schedule:
-                Intent internal_schedule = new Intent(Bar.this, Internal_schedule.class);
+                Intent internal_schedule = new Intent(Add_Bar.this, Internal_schedule.class);
                 startActivity(internal_schedule);
                 break;
         }

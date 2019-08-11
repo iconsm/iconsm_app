@@ -8,7 +8,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_alaiak_round"
         android:supportsRtl="true"
+        android:name=".Global_Variables.GlobalClass"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".Add_Bar"
+            android:label="Agregar Barra"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Internal_schedule"
             android:label="@string/title_activity_internal_schedule"
