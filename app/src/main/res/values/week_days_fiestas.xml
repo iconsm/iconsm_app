@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="week_day_fiestas">
+        <item>Viernes, 11 octubre</item>
+        <item>Sábado, 12 octubre</item>
+        <item>Domingo, 13 octubre</item>
+        <item>Lunes, 14 octubre</item>
+        <item>Martes, 15 octubre</item>
+        <item>Miércoles, 16 octubre</item>
+        <item>Jueves, 17 octubre</item>
+        <item>Viernes, 18 octubre</item>
+        <item>Sábado, 19 octubre</item>
+        <item>Domingo, 20 octubre</item>
+
+    </string-array>
+
+</resources>

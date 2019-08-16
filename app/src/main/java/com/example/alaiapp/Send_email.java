@@ -2,8 +2,6 @@ package com.example.alaiapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -122,7 +120,7 @@ public class Send_email extends AppCompatActivity
                 startActivity(bar);
                 break;
             case R.id.nav_list:
-                Intent list = new Intent(Send_email.this, List.class);
+                Intent list = new Intent(Send_email.this, Acts.class);
                 startActivity(list);
                 break;
             case R.id.nav_internal_schedule:

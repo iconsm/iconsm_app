@@ -14,7 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class List extends AppCompatActivity
+public class Acts extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
@@ -83,23 +83,23 @@ public class List extends AppCompatActivity
         switch (id) {
 
             case R.id.nav_mail:
-                Intent mail = new Intent(List.this, Send_email.class);
+                Intent mail = new Intent(Acts.this, Send_email.class);
                 startActivity(mail);
                 break;
             case R.id.nav_poll:
-                Intent poll = new Intent(List.this, Poll.class);
+                Intent poll = new Intent(Acts.this, Poll.class);
                 startActivity(poll);
                 break;
             case R.id.nav_bar:
-                Intent bar = new Intent(List.this, Bar.class);
+                Intent bar = new Intent(Acts.this, Bar.class);
                 startActivity(bar);
                 break;
             case R.id.nav_list:
-                Intent list = new Intent(List.this, List.class);
+                Intent list = new Intent(Acts.this, Acts.class);
                 startActivity(list);
                 break;
             case R.id.nav_internal_schedule:
-                Intent internal_schedule = new Intent(List.this, Internal_schedule.class);
+                Intent internal_schedule = new Intent(Acts.this, Internal_schedule.class);
                 startActivity(internal_schedule);
                 break;
         }

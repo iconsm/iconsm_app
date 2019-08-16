@@ -95,7 +95,7 @@ public class Internal_schedule extends AppCompatActivity
                 startActivity(bar);
                 break;
             case R.id.nav_list:
-                Intent list = new Intent(Internal_schedule.this, List.class);
+                Intent list = new Intent(Internal_schedule.this, Acts.class);
                 startActivity(list);
                 break;
             case R.id.nav_internal_schedule:

@@ -6,6 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".Home">
 
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="120dp"
+        android:text="Selecciona el día"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="190dp"
+        android:text="Selecciona la hora de comienzo"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="260dp"
+        android:text="Selecciona la hora de finalización"
+        android:textSize="18sp" />
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,12 +47,53 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <EditText
+        android:id="@+id/editText_add_name"
+        android:layout_width="262dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="330dp"
+        android:layout_marginRight="0dp"
+        android:ems="10"
+        android:hint="Persona encargada de la barra"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/button_add_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="400dp"
+        android:text="Añadir" />
+
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="100dp"
-        android:text="Hola" />
+        android:layout_marginTop="70dp"
+        android:text="Añadir barra"
+        android:textSize="24sp" />
+
+    <Spinner
+        android:id="@+id/spinner_add_bar_day"
+        android:layout_width="223dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="150dp" />
+
+    <Spinner
+        android:id="@+id/spinner_add_bar_start_time"
+        android:layout_width="117dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="220dp" />
+
+    <Spinner
+        android:id="@+id/spinner_add_bar_end_time"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="290dp" />
 
 </android.support.design.widget.CoordinatorLayout>
