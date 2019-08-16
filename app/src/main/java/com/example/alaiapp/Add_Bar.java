@@ -308,7 +308,7 @@ public class Add_Bar extends AppCompatActivity
             databaseReference.child("Barras").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    if (entrance_from_add_bar == true) {
+                    if (entrance_from_add_bar) {
                         //Do for loop to check if Uid is already used
                         for (DataSnapshot objSnapshot : dataSnapshot.getChildren()) {
                             check_bar = objSnapshot.getValue(Barra.class);

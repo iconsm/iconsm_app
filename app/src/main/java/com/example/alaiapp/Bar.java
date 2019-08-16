@@ -36,8 +36,6 @@ import java.util.List;
 public class Bar extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemSelectedListener {
 
-    private EditText password;
-
     Spinner week_days_fiestas;
     String text_week_day_fiestas;
 
@@ -88,7 +86,6 @@ public class Bar extends AppCompatActivity
         //Database
         initializeFirebase();
         listView_barras = findViewById(R.id.listview_show_bars);
-        //showDatabase();
 
         //Selecting barra for erasing functionality
         listView_barras.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -98,7 +95,7 @@ public class Bar extends AppCompatActivity
             }
         });
 
-        //Add bar button
+        //Delete bar button
         ImageButton buttonDeleteBar = (ImageButton) findViewById(R.id.imageButton2);
         buttonDeleteBar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -187,7 +184,7 @@ public class Bar extends AppCompatActivity
             }
         }
         else {
-            Toast.makeText(this, "No tienes permiso para agregar barras", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No tienes permiso para eliminar barras", Toast.LENGTH_SHORT).show();
         }
     }
     //Delete bar button END

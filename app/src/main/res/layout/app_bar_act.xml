@@ -20,12 +20,33 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+    <ImageButton
+        android:id="@+id/imageButton_act"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="60dp"
+        app:srcCompat="@drawable/ic_add" />
+
+    <ImageButton
+        android:id="@+id/imageButton_act_delete"
+        android:layout_width="46dp"
+        android:layout_height="43dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="60dp"
+        app:srcCompat="@android:drawable/ic_menu_delete" />
+
+    <Spinner
+        android:id="@+id/spinner_act"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="70dp" />
+
+    <ListView
+        android:id="@+id/listview_show_acts"
+        android:layout_width="match_parent"
+        android:layout_height="492dp"
+        android:layout_marginTop="130dp" />
 
 </android.support.design.widget.CoordinatorLayout>
