@@ -19,6 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -31,7 +32,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Bar extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemSelectedListener {
@@ -46,6 +51,12 @@ public class Bar extends AppCompatActivity
     ListView listView_barras;
 
     Barra barraSelected;
+    int barraPositionSelected = 99;
+
+    String text_item = "Horario: ";
+    String text_subitem = "Persona encargada: ";
+
+    LinkedHashMap<String, String> nameAddresses = new LinkedHashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,7 +102,7 @@ public class Bar extends AppCompatActivity
         listView_barras.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                barraSelected = (Barra) parent.getItemAtPosition(position);
+                barraPositionSelected= position;
             }
         });
 
@@ -115,24 +126,49 @@ public class Bar extends AppCompatActivity
     //Shows Database
     private void showDatabase(){
         //Searching just in "Barras" child
+
         databaseReference.child("Barras").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 listBarra.clear();
+                nameAddresses.clear();
                 for (DataSnapshot objSnapshot : dataSnapshot.getChildren()){
                     Barra b = objSnapshot.getValue(Barra.class);
                     //Set condition for listing database value
                     if (b.getDay_barra().compareTo(text_week_day_fiestas) == 0) {
-                        listBarra.add(b);
+                        text_item = text_item.concat(b.getStart_time_barra());
+                        text_item = text_item.concat(" - ");
+                        text_item = text_item.concat(b.getEnd_time_barra());
 
+                        text_subitem = text_subitem.concat(b.getName_barra());
+                        nameAddresses.put(text_item, text_subitem);
+
+                        text_item = "Horario: ";
+                        text_subitem = "Persona encargada: ";
+
+                        listBarra.add(b);
                         arrayAdapterBarra = new ArrayAdapter<Barra>(Bar.this, android.R.layout.simple_list_item_1, listBarra);
-                        listView_barras.setAdapter(arrayAdapterBarra);
                     }
                     else{
-                        arrayAdapterBarra = new ArrayAdapter<Barra>(Bar.this, android.R.layout.simple_list_item_1, listBarra);
-                        listView_barras.setAdapter(arrayAdapterBarra);
+                        //arrayAdapterBarra = new ArrayAdapter<Barra>(Bar.this, android.R.layout.simple_list_item_1, listBarra);
+                        /*listView_barras.setAdapter(arrayAdapterBarra);*/
                     }
                 }
+
+                List<LinkedHashMap<String, String>> listItemAndSubitem = new ArrayList<>();
+                SimpleAdapter adapter_item_subitem = new SimpleAdapter(Bar.this, listItemAndSubitem, R.layout.list_item,
+                        new String[]{"First Line", "Second Line"},
+                        new int[]{R.id.text1,R.id.text2});
+
+                Iterator it = nameAddresses.entrySet().iterator();
+                while (it.hasNext()){
+                    LinkedHashMap<String, String> resultMap = new LinkedHashMap<>();
+                    Map.Entry pair = (Map.Entry)it.next();
+                    resultMap.put("First Line", pair.getKey().toString());
+                    resultMap.put("Second Line", pair.getValue().toString());
+                    listItemAndSubitem.add(resultMap);
+                }
+                listView_barras.setAdapter(adapter_item_subitem);
             }
 
             @Override
@@ -160,7 +196,8 @@ public class Bar extends AppCompatActivity
         GlobalClass globalClass = (GlobalClass) getApplicationContext();
         if (globalClass.getGlobal_user().equals("ikercondeperez@gmail.com")) {
             //Show warning message
-            if (barraSelected != null){
+            if (barraPositionSelected != 99){
+                barraSelected = arrayAdapterBarra.getItem(barraPositionSelected);
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 String txt_message = "Se va a borrar la barra de ";
                 txt_message = txt_message.concat(barraSelected.getName_barra());
