@@ -13,6 +13,10 @@
         android:name=".Global_Variables.GlobalClass"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".NotMember"
+            android:label="Solicitud de infomación"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".Add_Acts"
             android:label="Agregar participantes de actos"
             android:theme="@style/AppTheme.NoActionBar" />

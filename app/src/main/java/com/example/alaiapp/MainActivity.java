@@ -1,14 +1,22 @@
 package com.example.alaiapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.alaiapp.Global_Variables.GlobalClass;
@@ -28,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox mCheckBoxRememberMe;
     private SharedPreferences mPrefs;
     private static final String PREFS_NAME = "PrefsFile";
+
+    private TextView notMember;
+    private TextView rememberPassword;
+    private int num_of_span;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +75,56 @@ public class MainActivity extends AppCompatActivity {
                 validate(name.getText().toString(),password.getText().toString());
             }
         });
+
+        //Not member functionality
+        notMember = (TextView) findViewById(R.id.tvNotMember);
+        rememberPassword = (TextView) findViewById(R.id.tvRememberPassword);
+
+        SpannableString ss = new SpannableString(notMember.getText().toString());
+        SpannableString ssPassword = new SpannableString(rememberPassword.getText().toString());
+
+        ClickableSpan clickableSpan = new ClickableSpan() {
+            @Override
+            public void onClick(View widget) {
+                num_of_span = widget.getId();
+                switch (num_of_span){
+                    case R.id.tvNotMember: //Not member functionality
+                        startActivity(new Intent(MainActivity.this,NotMember.class));
+                        break;
+                    case R.id.tvRememberPassword: //Remember password
+                        if(TextUtils.isEmpty(name.getText().toString())) {
+                            Toast.makeText(MainActivity.this,"Por favor introduce arriba tu email de usuario.",Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                            String txt_message = "Se va a enviar un correo a ";
+                            txt_message = txt_message.concat(name.getText().toString());
+                            txt_message = txt_message.concat(" para cambiar de contraseña. ¿Quieres seguir?");
+
+                            builder.setMessage(txt_message)
+                                    .setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            firebaseAuth.sendPasswordResetEmail(name.getText().toString());
+                                            Toast.makeText(MainActivity.this,"¡Correo enviado! Mira tu correo para cambiar la contraseña.",Toast.LENGTH_LONG).show();
+                                        }
+                                    }).setNegativeButton("Cancelar", null);
+                            AlertDialog alert = builder.create();
+                            alert.show();
+                            }
+                        break;
+                }
+            }
+        };
+        ss.setSpan(clickableSpan,0, 44, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        notMember.setText(ss);
+        notMember.setMovementMethod(LinkMovementMethod.getInstance());
+
+        //Remeber password functionality
+
+        ssPassword.setSpan(clickableSpan,0, 20, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        rememberPassword.setText(ssPassword);
+        rememberPassword.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
     private void validate (String userName, String userPassword){
@@ -71,12 +133,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(MainActivity.this,"Login exitoso!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,"¡Login exitoso!",Toast.LENGTH_SHORT).show();
                     //finish();
                     startActivity(new Intent(MainActivity.this,Home.class));
 
                 }else{
-                    Toast.makeText(MainActivity.this,"Login fallido!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,"¡Contraseña incorrecta!",Toast.LENGTH_SHORT).show();
                 }
             }
         });

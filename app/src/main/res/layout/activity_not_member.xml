@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/porron_prueba1"
+    tools:context=".Home">
+
+    <TextView
+        android:id="@+id/textView_not_member_4"
+        android:layout_width="306dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView_not_member_3"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="60dp"
+        android:text="Solicitud de información para ser socio de Alaiak"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView_not_member_3"
+        android:layout_width="309dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/edit_text_message_not_member"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="25dp"
+        android:text="Escriba a continuación la información que desea solicitar a la directiva:" />
+
+    <EditText
+        android:id="@+id/edit_text_message_not_member"
+        android:layout_width="311dp"
+        android:layout_height="387dp"
+        android:layout_above="@+id/button_send_not_member"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="180dp"
+        android:background="@drawable/borders"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="  Escriba aquí su mensaje."
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/button_send_not_member"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="580dp"
+        android:text="Solicitar información por correo" />
+
+</android.support.design.widget.CoordinatorLayout>

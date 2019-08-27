@@ -20,12 +20,38 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+    <TextView
+        android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="100dp"
+        android:text="¡Bienvenid@ a la App de Alaiak Taldea!"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="160dp"
+        android:text="Bienvenid@ a la primera versión de la app para android AlaiApp. Para acceder al menú principal de la aplicación, simplemente hay que pulsar el botón que se encuentra en la esquina superior izquierda de la pantalla." />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="280dp"
+        android:text="La aplicación se encuentra actualmente en desarrollo, por lo que toda información acerca de fallos o ideas nuevas será muy bien recibida." />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="360dp"
+        android:text="Gora Basauriko Alaiak Taldea!" />
 
 </android.support.design.widget.CoordinatorLayout>
