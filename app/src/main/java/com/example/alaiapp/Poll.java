@@ -56,7 +56,7 @@ public class Poll extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         /* Function code starts here */
-        mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
+        /*mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
         textView_poll_subject = (TextView) findViewById(R.id.textViewPollSubject);
         textView_option1 = (TextView) findViewById(R.id.textViewPoll_Option1);
         textView_option2 = (TextView) findViewById(R.id.textViewPoll_Option2);
@@ -93,7 +93,7 @@ public class Poll extends AppCompatActivity
                 subject = radioButton.getText().toString();
                 sendMail();
             }
-        });
+        });*/
     }
 
     private void displayPollMessages() {

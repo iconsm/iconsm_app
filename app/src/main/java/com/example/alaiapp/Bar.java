@@ -181,7 +181,13 @@ public class Bar extends AppCompatActivity
     //Add bar button
     private void gotoactivity(){
         GlobalClass globalClass = (GlobalClass) getApplicationContext();
-        if (globalClass.getGlobal_user().equals("ikercondeperez@gmail.com")) {
+        if (globalClass.getGlobal_user().equals("ikercondeperez@gmail.com") ||
+                globalClass.getGlobal_user().equals("melerojosu@gmail.com") ||
+                globalClass.getGlobal_user().equals("wow_mikel@hotmail.es") ||
+                globalClass.getGlobal_user().equals("leneruno@hotmail.com") ||
+                globalClass.getGlobal_user().equals("gilrueda.patri@gmail.com") ||
+                globalClass.getGlobal_user().equals("naiaracf84@gmail.com") ||
+                globalClass.getGlobal_user().equals("alamagar91@gmail.com")){
             Intent add_bar = new Intent(Bar.this, Add_Bar.class);
             startActivity(add_bar);
         }
@@ -194,7 +200,13 @@ public class Bar extends AppCompatActivity
     //Delete bar button
     private void deleteBar(){
         GlobalClass globalClass = (GlobalClass) getApplicationContext();
-        if (globalClass.getGlobal_user().equals("ikercondeperez@gmail.com")) {
+        if (globalClass.getGlobal_user().equals("ikercondeperez@gmail.com") ||
+                globalClass.getGlobal_user().equals("melerojosu@gmail.com") ||
+                globalClass.getGlobal_user().equals("wow_mikel@hotmail.es") ||
+                globalClass.getGlobal_user().equals("leneruno@hotmail.com") ||
+                globalClass.getGlobal_user().equals("gilrueda.patri@gmail.com") ||
+                globalClass.getGlobal_user().equals("naiaracf84@gmail.com") ||
+                globalClass.getGlobal_user().equals("alamagar91@gmail.com")) {
             //Show warning message
             if (barraPositionSelected != 99){
                 barraSelected = arrayAdapterBarra.getItem(barraPositionSelected);

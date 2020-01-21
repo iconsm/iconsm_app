@@ -105,8 +105,17 @@ public class MainActivity extends AppCompatActivity {
                                     .setPositiveButton("Sí", new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
-                                            firebaseAuth.sendPasswordResetEmail(name.getText().toString());
-                                            Toast.makeText(MainActivity.this,"¡Correo enviado! Mira tu correo para cambiar la contraseña.",Toast.LENGTH_LONG).show();
+                                            firebaseAuth.sendPasswordResetEmail(name.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if(task.isSuccessful()){
+                                                        Toast.makeText(MainActivity.this,"¡Correo enviado! Mira tu correo para cambiar la contraseña.",Toast.LENGTH_LONG).show();
+
+                                                    }else{
+                                                        Toast.makeText(MainActivity.this,"¡Tu usuario no se encuentra entre los socios registrados!",Toast.LENGTH_SHORT).show();
+                                                    }
+                                                }
+                                            });
                                         }
                                     }).setNegativeButton("Cancelar", null);
                             AlertDialog alert = builder.create();
@@ -122,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Remeber password functionality
 
-        ssPassword.setSpan(clickableSpan,0, 20, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ssPassword.setSpan(clickableSpan,0, 19, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         rememberPassword.setText(ssPassword);
         rememberPassword.setMovementMethod(LinkMovementMethod.getInstance());
     }

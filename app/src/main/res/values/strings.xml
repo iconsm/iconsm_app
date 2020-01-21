@@ -7,7 +7,7 @@
     <string name="main_activity_user">Usuario</string>
     <string name="main_activity_password">Contraseña</string>
     <string name="main_activity_sign_in">Entrar</string>
-    <string name="main_activity_remember_password">Recordar contraseñar</string>
+    <string name="main_activity_remember_password">Cambiar contraseñar</string>
     <string name="title_activity_home">AlaiApp</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

@@ -109,7 +109,13 @@ public class Acts extends AppCompatActivity
     //Add act button
     private void gotoactivity(){
         GlobalClass globalClass = (GlobalClass) getApplicationContext();
-        if (globalClass.getGlobal_user().equals("ikercondeperez@gmail.com")) {
+        if (globalClass.getGlobal_user().equals("ikercondeperez@gmail.com") ||
+                globalClass.getGlobal_user().equals("melerojosu@gmail.com") ||
+                globalClass.getGlobal_user().equals("wow_mikel@hotmail.es") ||
+                globalClass.getGlobal_user().equals("leneruno@hotmail.com") ||
+                globalClass.getGlobal_user().equals("gilrueda.patri@gmail.com") ||
+                globalClass.getGlobal_user().equals("naiaracf84@gmail.com") ||
+                globalClass.getGlobal_user().equals("alamagar91@gmail.com")) {
             Intent add_act = new Intent(Acts.this, Add_Acts.class);
             startActivity(add_act);
         }
@@ -137,15 +143,15 @@ public class Acts extends AppCompatActivity
                     //Set condition for listing database value
                     if (a.getName_acto().compareTo(text_acts_fiestas) == 0) {
                         listActo.add(a);
-
                         arrayAdapterActo = new ArrayAdapter<Acto>(Acts.this, android.R.layout.simple_list_item_1, listActo);
                         listView_actos.setAdapter(arrayAdapterActo);
                     }
                     else{
-                        arrayAdapterActo = new ArrayAdapter<Acto>(Acts.this, android.R.layout.simple_list_item_1, listActo);
-                        listView_actos.setAdapter(arrayAdapterActo);
+                        // Nothing to do here \_oo_/
                     }
                 }
+                arrayAdapterActo = new ArrayAdapter<Acto>(Acts.this, android.R.layout.simple_list_item_1, listActo);
+                listView_actos.setAdapter(arrayAdapterActo);
             }
 
             @Override
@@ -158,7 +164,13 @@ public class Acts extends AppCompatActivity
     //Delete member button
     private void deleteActMember(){
         GlobalClass globalClass = (GlobalClass) getApplicationContext();
-        if (globalClass.getGlobal_user().equals("ikercondeperez@gmail.com")) {
+        if (globalClass.getGlobal_user().equals("ikercondeperez@gmail.com") ||
+                globalClass.getGlobal_user().equals("melerojosu@gmail.com") ||
+                globalClass.getGlobal_user().equals("wow_mikel@hotmail.es") ||
+                globalClass.getGlobal_user().equals("leneruno@hotmail.com") ||
+                globalClass.getGlobal_user().equals("gilrueda.patri@gmail.com") ||
+                globalClass.getGlobal_user().equals("naiaracf84@gmail.com") ||
+                globalClass.getGlobal_user().equals("alamagar91@gmail.com")) {
             //Show warning message
             if (actoSelected != null){
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
