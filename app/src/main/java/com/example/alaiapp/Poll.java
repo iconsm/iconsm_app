@@ -56,7 +56,7 @@ public class Poll extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         /* Function code starts here */
-        /*mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
+        mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
         textView_poll_subject = (TextView) findViewById(R.id.textViewPollSubject);
         textView_option1 = (TextView) findViewById(R.id.textViewPoll_Option1);
         textView_option2 = (TextView) findViewById(R.id.textViewPoll_Option2);
@@ -80,6 +80,8 @@ public class Poll extends AppCompatActivity
                                     Toast.LENGTH_SHORT).show();
                         }
                         displayPollMessages();
+                        /* Check if radioGroup options are available */
+                        check_options_enabled();
                     }
                 });
 
@@ -93,7 +95,7 @@ public class Poll extends AppCompatActivity
                 subject = radioButton.getText().toString();
                 sendMail();
             }
-        });*/
+        });
     }
 
     private void displayPollMessages() {
@@ -103,6 +105,36 @@ public class Poll extends AppCompatActivity
         textView_option3.setText(mFirebaseRemoteConfig.getString("poll_option3"));
         textView_option4.setText(mFirebaseRemoteConfig.getString("poll_option4"));
 
+    }
+
+    private void check_options_enabled() {
+        if (mFirebaseRemoteConfig.getString("poll_option1_enabled").equals("true")||
+            mFirebaseRemoteConfig.getString("poll_option1_enabled").equals("True")||
+            mFirebaseRemoteConfig.getString("poll_option1_enabled").equals("TRUE"))
+            radioGroup.getChildAt(0).setEnabled(true);
+        else
+            radioGroup.getChildAt(0).setEnabled(false);
+
+        if (mFirebaseRemoteConfig.getString("poll_option2_enabled").equals("true")||
+            mFirebaseRemoteConfig.getString("poll_option2_enabled").equals("True")||
+            mFirebaseRemoteConfig.getString("poll_option2_enabled").equals("TRUE"))
+            radioGroup.getChildAt(1).setEnabled(true);
+        else
+            radioGroup.getChildAt(1).setEnabled(false);
+
+        if (mFirebaseRemoteConfig.getString("poll_option3_enabled").equals("true")||
+            mFirebaseRemoteConfig.getString("poll_option3_enabled").equals("True")||
+            mFirebaseRemoteConfig.getString("poll_option3_enabled").equals("TRUE"))
+            radioGroup.getChildAt(2).setEnabled(true);
+        else
+            radioGroup.getChildAt(2).setEnabled(false);
+
+        if (mFirebaseRemoteConfig.getString("poll_option4_enabled").equals("true")||
+            mFirebaseRemoteConfig.getString("poll_option4_enabled").equals("True")||
+            mFirebaseRemoteConfig.getString("poll_option4_enabled").equals("TRUE"))
+            radioGroup.getChildAt(3).setEnabled(true);
+        else
+            radioGroup.getChildAt(3).setEnabled(false);
     }
 
     private void sendMail(){

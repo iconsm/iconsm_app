@@ -22,13 +22,61 @@
 
     <TextView
         android:id="@+id/textViewPollSubject"
-        android:layout_width="314dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="80dp"
-        android:text="Actualmente, se encuentra en desarrollo. Disculpen las molestias :)"
+        android:text="poll_subject"
         android:textSize="18sp"
         android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/textViewPoll_Option1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="120dp"
+            android:text="poll_option1" />
+
+        <RadioButton
+            android:id="@+id/textViewPoll_Option2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:text="poll_option2" />
+
+        <RadioButton
+            android:id="@+id/textViewPoll_Option3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:text="poll_option3" />
+
+        <RadioButton
+            android:id="@+id/textViewPoll_Option4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:text="poll_option4" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button_send_poll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="Enviar encuesta por correo" />
 
 
 </android.support.design.widget.CoordinatorLayout>
